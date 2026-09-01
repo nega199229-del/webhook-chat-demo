@@ -1,0 +1,17 @@
+{
+  "name": "webhook-chat-demo",
+  "version": "2.0.0",
+  "description": "Chat multiusuario en tiempo real (Socket.io) con webhooks opcionales por usuario",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.8.3"
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webhook Chat</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="app" class="app hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <button id="toggleSidebar" class="icon-btn" title="Colapsar">☰</button>
+        <span class="sidebar-title">Usuarios</span>
+      </div>
+
+      <ul id="userList" class="user-list"></ul>
+
+      <form id="newUserForm" class="new-user-form">
+        <input id="newUserName" type="text" placeholder="Nombre nuevo usuario" required />
+        <input id="newUserWebhook" type="text" placeholder="Webhook URL (opcional)" />
+        <button type="submit">+ Agregar</button>
+      </form>
+    </aside>
+
+    <main class="chat-area">
+      <header id="chatHeader" class="chat-header">
+        <span id="chatWith">Selecciona un usuario para chatear</span>
+        <span id="meLabel" class="me-label"></span>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="messageForm" class="message-form">
+        <input id="messageInput" type="text" placeholder="Escribe un mensaje..." autocomplete="off" disabled />
+        <button type="submit" disabled>Enviar</button>
+      </form>
+    </main>
+  </div>
+
+  <div id="identityModal" class="modal-overlay">
+    <div class="modal">
+      <h2>¿Quién eres?</h2>
+
+      <div id="existingUsers" class="existing-users"></div>
+
+      <form id="identityForm" class="identity-form">
+        <input id="identityName" type="text" placeholder="Tu nombre" required />
+        <input id="identityWebhook" type="text" placeholder="Webhook URL (opcional)" />
+        <button type="submit">Crear y entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
