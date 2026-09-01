@@ -27,6 +27,17 @@ npm start
 
 Abre `http://localhost:3000` en el navegador. La primera vez te pedirá un nombre (y opcionalmente una webhook URL) para crear tu identidad — queda guardada en `localStorage`. Abre otra pestaña o navegador para simular un segundo usuario y chatear entre ambos en tiempo real. Cada usuario nuevo aparece automáticamente en la barra lateral (colapsable con el botón ☰) de todos los que tengan la app abierta.
 
+## Despliegue (Render)
+
+El repo incluye `render.yaml` para desplegar como Blueprint:
+
+1. Entra a [dashboard.render.com](https://dashboard.render.com) e inicia sesión con GitHub.
+2. **New +** → **Blueprint** → selecciona el repo `webhook-chat-demo`.
+3. Render detecta `render.yaml` y propone el servicio — click **Apply**.
+4. Espera el build/deploy (1-2 min) y obtén una URL pública tipo `https://webhook-chat-demo.onrender.com`, accesible desde cualquier equipo.
+
+**Limitaciones del plan free**: el servicio se duerme tras ~15 min de inactividad (la primera visita tras dormir tarda 30-50s en responder), y al dormir/reiniciar/redeploy se pierde todo lo que está en memoria (usuarios y mensajes), ya que `store.js` no persiste a disco.
+
 ## API REST
 
 | Método | Ruta | Descripción |
